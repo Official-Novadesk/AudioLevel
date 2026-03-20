@@ -13,8 +13,8 @@ var widget = new widgetWindow({
 console.log("[INFO] Widget created: audioTest (600x400), ui=script.ui.js");
 
 var audioAddon = addon.load("../dist/x64/Debug/AudioLevel/AudioLevel.dll");
-if (!audioAddon || !audioAddon.audioLevel || typeof audioAddon.audioLevel.stats !== "function") {
-    throw new Error("AudioLevel addon not loaded or missing audioLevel.stats");
+if (!audioAddon || typeof audioAddon.stats !== "function") {
+    throw new Error("AudioLevel addon not loaded or missing stats");
 }
 
 var statsOptions = {
@@ -33,7 +33,7 @@ console.log("[INFO] stats options: " + JSON.stringify(statsOptions));
 var tick = 0;
 var timer = setInterval(function () {
     tick += 1;
-    var data = audioAddon.audioLevel.stats(statsOptions);
+    var data = audioAddon.stats(statsOptions);
 
     if (data) {
         ipcMain.send("audio-data", data);

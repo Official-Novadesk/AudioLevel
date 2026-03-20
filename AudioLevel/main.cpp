@@ -584,9 +584,7 @@ NOVADESK_ADDON_INIT(ctx, hMsgWnd, host)
     addon.RegisterString("name", "AudioLevel");
     addon.RegisterString("version", "1.0.0");
 
-    addon.RegisterObject("audioLevel", [](novadesk::Addon &obj) {
-        obj.RegisterFunction("stats", JsAudioLevelStats, 1);
-    });
+    addon.RegisterFunction("stats", JsAudioLevelStats, 1);
 }
 
 NOVADESK_ADDON_UNLOAD()
