@@ -9,7 +9,7 @@ const widget = new widgetWindow({
 });
 
 const audioLevel = addon.load(
-  "D:\\Novadesk-Project\\AudioLevel\\dist\\x64\\Debug\\AudioLevel\\AudioLevel.dll"
+  "addon\\AudioLevel.dll"
 );
 
 const statsOptions = {
